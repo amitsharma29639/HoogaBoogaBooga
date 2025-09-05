@@ -32,7 +32,7 @@ namespace CardGame.GamePlay
 
         private CardData cardData;
         private CardFace currentFace;
-       // private List<ICardEventsListner> listeners;
+        private List<ICardEventsListner> listeners;
         public ClickableObject clickable;
 
         #endregion
@@ -55,7 +55,7 @@ namespace CardGame.GamePlay
         private void Awake()
         {
             clickable = GetComponent<ClickableObject>();
-           // listeners = new List<ICardEventsListner>();
+            listeners = new List<ICardEventsListner>();
         }
 
         private void OnEnable()
@@ -91,25 +91,25 @@ namespace CardGame.GamePlay
         /// <summary>
         /// Adds a listener for card events.
         /// </summary>
-        // public void AddListener(ICardEventsListner listener)
-        // {
-        //     listeners.Add(listener);
-        // }
+        public void AddListener(ICardEventsListner listener)
+        {
+            listeners.Add(listener);
+        }
 
         /// <summary>
         /// Removes a listener for card events.
         /// </summary>
-        // public void RemoveListener(ICardEventsListner listener)
-        // {
-        //     listeners.Remove(listener);
-        // }
+        public void RemoveListener(ICardEventsListner listener)
+        {
+            listeners.Remove(listener);
+        }
 
         /// <summary>
         /// Clears all listeners for card events.
         /// </summary>
         public void ClearListeners()
         {
-           // listeners.Clear();
+           listeners.Clear();
         }
 
         #endregion
@@ -195,42 +195,42 @@ namespace CardGame.GamePlay
 
         private void NotifyCardClicked()
         {
-            // foreach (var listener in listeners)
-            // {
-            //     listener.OnCardClicked(this);
-            // }
+            foreach (var listener in listeners)
+            {
+                listener.OnCardClicked(this);
+            }
         }
 
         private void NotifyCardFlipped()
         {
-            // foreach (var listener in listeners)
-            // {
-            //     listener.OnCardFlipped(this);
-            // }
+            foreach (var listener in listeners)
+            {
+                listener.OnCardFlipped(this);
+            }
         }
 
         private void NotifyCardFaceUpAnimationFinished()
         {
-            // foreach (var listener in listeners)
-            // {
-            //     listener.OnCardFaceUpAnimationFinished(this);
-            // }
+            foreach (var listener in listeners)
+            {
+                listener.OnCardFaceUpAnimationFinished(this);
+            }
         }
 
         private void NotifyCardFaceDownAnimationFinished()
         {
-            // foreach (var listener in listeners)
-            // {
-            //     listener.OnCardFaceDownAnimationFinished(this);
-            // }
+            foreach (var listener in listeners)
+            {
+                listener.OnCardFaceDownAnimationFinished(this);
+            }
         }
 
         private void NotifyCardDisableAnimationFinished()
         {
-            // foreach (var listener in listeners)
-            // {
-            //     listener.OnCardDisableAnimationFinished(this);
-            // }
+            foreach (var listener in listeners)
+            {
+                listener.OnCardDisableAnimationFinished(this);
+            }
         }
 
         #endregion

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 381345526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc864acf11a64ab99fcf83177ba5c4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 82d29f8808f9549ceb309d9c9db5997b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1159626820}
@@ -717,10 +717,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3445836744428688744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 538fdbc389bc44a1cbcfa19f597e2dd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b038b59ea33c46cf9d591e46996652a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 6515538696861697949, guid: db532273ed05d4426b23361d38a28760, type: 3}
+  cardPrefab: {fileID: 6515538696861697949, guid: ac4b1c2eb9c174524b9ec4ef130593a4, type: 3}
   spriteAtlas: {fileID: 4343727234628468602, guid: 31497e0473aef4618b9d8d932fcaf2a4, type: 2}
   hudManager: {fileID: 381345531}
 --- !u!1 &3481420360219397062

@@ -12,13 +12,13 @@ public class GameGridStateData
     #region Fields
 
     [SerializeField]
-    public int row;   // Number of rows in the grid
+    private int row;   // Number of rows in the grid
 
     [SerializeField]
-    public int col;   // Number of columns in the grid
+    private int col;   // Number of columns in the grid
 
     [SerializeField]
-    public List<CardStateData> cardsData;  // List of all card states in this grid
+    private List<CardStateData> cardsData;  // List of all card states in this grid
 
     #endregion
 
@@ -38,17 +38,20 @@ public class GameGridStateData
 
     #endregion
 
-
-    #region Public Methods
-
-    /// <summary>
-    /// Sets the card data for this grid.
-    /// </summary>
-    /// <param name="cardsDate">List of card state data to assign.</param>
-    public void SetGridData(List<CardStateData> cardsDate)
+    public int Row
     {
-        this.cardsData = cardsDate;
+        get => row;
     }
 
-    #endregion
+    public int Col
+    {
+        get => col;
+    }
+    
+    public List<CardStateData> CardsData
+    {
+        get => cardsData;
+        set => cardsData = value;
+    }
+    
 }

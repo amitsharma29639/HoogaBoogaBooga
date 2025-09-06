@@ -12,16 +12,16 @@ public class GameState
     #region Fields
 
     [SerializeField]
-    public int score;          // Current game score
+    private int score;          // Current game score
 
     [SerializeField]
-    public int turns;          // Number of turns taken
+    private int turns;          // Number of turns taken
 
     [SerializeField]
-    public int powerCount;     // Number of power-ups available
+    private int powerCount;     // Number of power-ups available
 
     [SerializeField]
-    public GameGridStateData gridData;  // Current state of the game grid
+    private GameGridStateData gridData;  // Current state of the game grid
 
     #endregion
 
@@ -49,7 +49,7 @@ public class GameState
     /// <param name="cardsData">List of card state data.</param>
     public void SetGridData(List<CardStateData> cardsData)
     {
-        gridData.SetGridData(cardsData);
+        gridData.CardsData = cardsData;
     }
 
     /// <summary>
@@ -80,4 +80,28 @@ public class GameState
     }
 
     #endregion
+
+    public int Score
+    {
+        get => score;
+        set => score = value;
+    }
+
+    public int Turns
+    {
+        get => turns;
+        set => turns = value;
+    }
+
+    public int PowerCount
+    {
+        get => powerCount;
+        set => powerCount = value;
+    }
+
+    public GameGridStateData GridData
+    {
+        get => gridData;
+        set => gridData = value;
+    }
 }

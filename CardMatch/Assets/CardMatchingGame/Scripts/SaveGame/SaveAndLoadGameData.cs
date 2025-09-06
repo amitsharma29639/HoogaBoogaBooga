@@ -67,14 +67,14 @@ public class SaveAndLoadGameData
         gameState = Load();
 
         // Apply loaded values to managers and game state
-        scoreManager.SetScore(gameState.score);
-        turnsManager.SetTurns(gameState.turns);
-        PowerUpManager.Instance.Init(ConfigurePowerUps(gameState.powerCount));
+        scoreManager.SetScore(gameState.Score);
+        turnsManager.SetTurns(gameState.Turns);
+        PowerUpManager.Instance.Init(ConfigurePowerUps(gameState.PowerCount));
 
-        gameConfig.Rows = gameState.gridData.row;
-        gameConfig.Cols = gameState.gridData.col;
+        gameConfig.Rows = gameState.GridData.Row;
+        gameConfig.Cols = gameState.GridData.Col;
 
-        cardsManager.InstantiateFromSavedData(gameState.gridData.cardsData, evaluator);
+        cardsManager.InstantiateFromSavedData(gameState.GridData.CardsData, evaluator);
     }
 
     /// <summary>

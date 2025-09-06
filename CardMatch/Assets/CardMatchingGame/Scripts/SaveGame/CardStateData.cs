@@ -12,19 +12,19 @@ public class CardStateData
     #region Fields
 
     [SerializeField] 
-    public int id;               // Unique identifier for the card
+    private int id;               // Unique identifier for the card
+    
+    [SerializeField] 
+    private string suit;          // Suit of the card (e.g., Hearts, Spades)
 
     [SerializeField] 
-    public string suit;          // Suit of the card (e.g., Hearts, Spades)
+    private string rank;          // Rank of the card (e.g., Ace, 2, King)
 
     [SerializeField] 
-    public string rank;          // Rank of the card (e.g., Ace, 2, King)
+    private bool isMatched;       // Whether the card has been matched
 
     [SerializeField] 
-    public bool isMatched;       // Whether the card has been matched
-
-    [SerializeField] 
-    public CardFace cardFace;    // Current face of the card (Front/Back)
+    private CardFace cardFace;    // Current face of the card (Front/Back)
 
     #endregion
 
@@ -49,4 +49,30 @@ public class CardStateData
     }
 
     #endregion
+    
+    public int ID
+    {
+        get => id;
+    }
+
+    public string Suit
+    {
+        get => suit;
+    }
+
+    public string Rank
+    {
+        get => rank;
+    }
+
+    public bool IsMatched
+    {
+        get => isMatched;
+    }
+
+    public CardFace CardFace
+    {
+        get => cardFace;
+    }
+
 }

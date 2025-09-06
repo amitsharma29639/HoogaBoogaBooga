@@ -57,13 +57,13 @@ public class CardsManager : IGameResultListner
         {
             GameObject cardObj = GameObject.Instantiate(cardPrefab, cardsParent);
             Card card = cardObj.GetComponent<Card>();
-            CardData cardData = new CardData(cardState.id, cardState.suit, cardState.rank, spriteAtlas);
+            CardData cardData = new CardData(cardState.ID, cardState.Suit, cardState.Rank, spriteAtlas);
             card.Init(cardData);
             cards.Add(cardObj);
-            cardObj.SetActive(!cardState.isMatched);
-            if (!cardState.isMatched)
+            cardObj.SetActive(!cardState.IsMatched);
+            if (!cardState.IsMatched)
             {
-                card.CurrentFace = cardState.cardFace;
+                card.CurrentFace = cardState.CardFace;
             }
         }
 

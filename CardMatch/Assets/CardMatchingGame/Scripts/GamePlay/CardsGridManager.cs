@@ -10,8 +10,12 @@ public class CardsGridManager : MonoBehaviour, IGameResultListner, IHUDEventsLis
 {
     #region Constants
 
-    private float hSpacing = 1.5f;
-    private float vSpacing = 2f;
+    private const float HORIZONTAL_SPACE = 1.5f;
+    private const float VERTICAL_SPACE = 2f;
+    
+    private const int INITIAL_SCORE =0;
+    private const int INITIAL_TURNS = 0;
+    private const int POWER_COUNT = 3;
 
     #endregion
 
@@ -70,10 +74,10 @@ public class CardsGridManager : MonoBehaviour, IGameResultListner, IHUDEventsLis
     {
         cardsManager = new CardsManager(cardPrefab, transform, gameConfig.Rows * gameConfig.Cols, spriteAtlas);
 
-        scoreManager = new ScoreManager(0);
+        scoreManager = new ScoreManager(INITIAL_SCORE);
         scoreManager.AddScoreListner(hudManager.OnScoreUpdate);
 
-        turnsManager = new TurnsManager(0);
+        turnsManager = new TurnsManager(INITIAL_TURNS);
         turnsManager.AddTurnsListner(hudManager.OnTurnsUpdate);
 
         gameResultEvaluator = new GameResultEvaluator(cardsManager.GetCards());
@@ -85,7 +89,7 @@ public class CardsGridManager : MonoBehaviour, IGameResultListner, IHUDEventsLis
         popup.AddListener(this);
 
         List<PowerUp> powerUps = new List<PowerUp>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < POWER_COUNT; i++)
         {
             powerUps.Add(new RevealAllCardsPowerUp(cardsManager));
         }
@@ -108,8 +112,8 @@ public class CardsGridManager : MonoBehaviour, IGameResultListner, IHUDEventsLis
     /// </summary>
     private void CreateGrid(int rows, int cols)
     {
-        float gridWidth = (cols - 1) * hSpacing;
-        float gridHeight = (rows - 1) * vSpacing;
+        float gridWidth = (cols - 1) * HORIZONTAL_SPACE;
+        float gridHeight = (rows - 1) * VERTICAL_SPACE;
 
         Vector3 startPosition = new Vector3(-gridWidth / 2, gridHeight / 2, 0);
 
@@ -122,7 +126,7 @@ public class CardsGridManager : MonoBehaviour, IGameResultListner, IHUDEventsLis
                 if (index < cards.Count)
                 {
                     GameObject card = cards[index];
-                    card.transform.localPosition = new Vector3(startPosition.x + j * hSpacing, startPosition.y - i * vSpacing, startPosition.z);
+                    card.transform.localPosition = new Vector3(startPosition.x + j * HORIZONTAL_SPACE, startPosition.y - i * VERTICAL_SPACE, startPosition.z);
                 }
             }
         }

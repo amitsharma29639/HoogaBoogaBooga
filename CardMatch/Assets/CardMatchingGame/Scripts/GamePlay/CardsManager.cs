@@ -29,8 +29,9 @@ public class CardsManager : IGameResultListner
         this.cardsParent = parent;
         this.spriteAtlas = spriteAtlas;
         cards = new List<GameObject>();
-        List<CardData> cardsData = GenerateUniqueRandomCards();
-        List<CardData> gridCards = ShuffleCardsData(cardsData.GetRange(0, cardsCount));
+        List<CardData> cardsData = GenerateCardsDeck();
+        int index = Random.Range(0,(cardsData.Count - cardsCount)/2) * 2;
+        List<CardData> gridCards = ShuffleCardsData(cardsData.GetRange(index, cardsCount));
         InstantiateCardObjects(cardPrefab, parent, gridCards);
     }
 
@@ -143,7 +144,7 @@ public class CardsManager : IGameResultListner
     /// <summary>
     /// Generates a deck of unique random cards (pairs for each suit and rank).
     /// </summary>
-    private List<CardData> GenerateUniqueRandomCards()
+    private List<CardData> GenerateCardsDeck()
     {
         int id = 0;
         List<CardData> deck = new List<CardData>();

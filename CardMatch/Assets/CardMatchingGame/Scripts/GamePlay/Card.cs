@@ -132,7 +132,7 @@ namespace CardGame.GamePlay
         {
             if (currentFace == CardFace.backFace)
             {
-               // AudioManager.Instance.PlayOneShot(AudioGroupConstants.GAMEPLAYSFX, AudioGroupConstants.FLIP, AudioGroupConstants.GAMEPLAYSFX);
+               AudioManager.Instance.PlayOneShot(AudioGroupConstants.GAMEPLAYSFX, AudioGroupConstants.FLIP, AudioGroupConstants.GAMEPLAYSFX);
                 NotifyCardClicked();
                 FlipCard();
             }
@@ -169,7 +169,7 @@ namespace CardGame.GamePlay
             clickable.enabled = false;
             DOTween.To(() => transform.localEulerAngles, x => transform.localEulerAngles = x, faceUpRotation, FLIP_DURATION).onComplete += async () =>
             {
-                await Task.Delay(1000);
+                await Task.Delay(2000);
                 DOTween.To(() => transform.localEulerAngles, x => transform.localEulerAngles = x, faceDownRotation, FLIP_DURATION).onComplete += () =>
                 {
                     clickable.enabled = true;

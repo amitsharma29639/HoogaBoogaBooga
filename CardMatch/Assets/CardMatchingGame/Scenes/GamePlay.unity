@@ -129,6 +129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7032558558745757844}
     m_Modifications:
+    - target: {fileID: 1170428115, guid: 0dc75632fc17643da8e9912be04cdad2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1245712739620922118, guid: 0dc75632fc17643da8e9912be04cdad2, type: 3}
       propertyPath: m_Pivot.x
       value: 0

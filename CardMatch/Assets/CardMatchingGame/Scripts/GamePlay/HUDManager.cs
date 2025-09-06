@@ -94,6 +94,8 @@ public class HUDManager : MonoBehaviour
         {
             listener.OnSaveBtnClicked();
         }
+        
+        Toast.Instance.Show("Game Saved");
     }
 
     #endregion

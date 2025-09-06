@@ -71,10 +71,16 @@ public class HUDManager : MonoBehaviour
     private void OnClickHomeBtn()
     {
         AudioManager.Instance.PlayOneShot(AudioGroupConstants.GAMEPLAYSFX, AudioGroupConstants.BUTTON_CLICK, AudioGroupConstants.GAMEPLAYSFX);
-        foreach (var listener in listeners)
+        
+        UIFader.Instance.FadeIn(() =>
         {
-            listener.OnHomeBtnClicked();
-        }
+            foreach (var listener in listeners)
+            {
+                listener.OnHomeBtnClicked();
+            }
+            UIFader.Instance.FadeOut();
+        });
+        
     }
 
     /// <summary>

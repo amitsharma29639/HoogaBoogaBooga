@@ -17,7 +17,6 @@ public class MainMenuScreen : UIScreen
     [SerializeField] TMP_Dropdown dropdown;           // Dropdown UI for selecting options
     [SerializeField] private Button playBtn;           // Play button
     [SerializeField] private Toggle playSavedGame;    // Toggle to play saved game
-    [SerializeField] private Image fadeImage;         // Fade image for transitions
 
     #endregion
 
@@ -89,21 +88,17 @@ public class MainMenuScreen : UIScreen
                 return;
             }
         }
-
-        // Show fade effect and trigger play event
-        fadeImage.gameObject.SetActive(true);
-        Sequence seq = DOTween.Sequence();
-        seq.Append(fadeImage.DOFade(1f, 0.5f).OnComplete(() =>
+        
+        UIFader.Instance.FadeIn(() =>
         {
             foreach (var listner in listners)
             {
                 listner.OnPlayButtonClicked();
             }
-
-            fadeImage.color = new Color(0, 0, 0, 0);
-            fadeImage.gameObject.SetActive(false);
             UIManager.Instance.PopScreen();
-        }));
+            
+            UIFader.Instance.FadeOut();
+        });
     }
 
     /// <summary>

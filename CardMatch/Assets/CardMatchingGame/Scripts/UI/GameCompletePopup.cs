@@ -91,15 +91,20 @@ public class GameCompletePopup : UIScreen
             AudioGroupConstants.BUTTON_CLICK, 
             AudioGroupConstants.GAMEPLAYSFX
         );
-
-        UIManager.Instance.PopScreen();
-        UIManager.Instance.PushScreen(UiScreenFactory.Instance.GetUIScreen(Constants.HOME_SCREEN));
-
-        // Notify all listeners
-        foreach (IGameCompletePopupEventListner listner in listners)
+         
+        UIFader.Instance.FadeIn(() =>
         {
-            listner.OnClickHomeButton();
-        }
+            UIManager.Instance.PopScreen();
+            UIManager.Instance.PushScreen(UiScreenFactory.Instance.GetUIScreen(Constants.HOME_SCREEN));
+
+            // Notify all listeners
+            foreach (IGameCompletePopupEventListner listner in listners)
+            {
+                listner.OnClickHomeButton();
+            }
+            UIFader.Instance.FadeOut();
+        });
+       
     }
 
     #endregion

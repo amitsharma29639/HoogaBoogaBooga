@@ -72,7 +72,15 @@ public class NoSavedGamePopup : UIScreen
             AudioGroupConstants.GAMEPLAYSFX
         );
 
-        UIManager.Instance.PopScreen();
+        Vector2 pos = new Vector2(originalPos.x, Screen.height);
+        rectTransform.anchoredPosition = originalPos;
+
+        // Animate into center
+        rectTransform.DOAnchorPos(pos, 0.5f)
+            .SetEase(Ease.OutBack)
+            .OnComplete(() => UIManager.Instance.PopScreen());
+
+        
     }
 
     #endregion
